@@ -10,9 +10,17 @@ function isFullHouse(c) {
   })
 
   // This works assuming I am given an input with 5 cards.
-  return (Object.keys(hand).length === 2) ? true : false
+  if (Object.keys(hand).length === 2) {
+    for(var prop in hand) {
+      if(hand[prop] === 2 || hand[prop] === 3) {
+        return true
+      }
+    }
+  }
+  return false
 }
 
 console.log(isFullHouse("J J J 2 3"))
 console.log(isFullHouse("2 2 3 3 4"))
 console.log(isFullHouse("A A K K K"))
+console.log(isFullHouse("A A A A J"))
